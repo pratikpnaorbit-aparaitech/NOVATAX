@@ -56,23 +56,52 @@ function Brand() {
 
 function Header() {
   const [mobile, setMobile] = useState(false);
+  const [openGroup, setOpenGroup] = useState(null);
+
+  const toggleGroup = (label) => {
+    setOpenGroup((prev) => (prev === label ? null : label));
+  };
+
+  const closeMenu = () => {
+    setMobile(false);
+    setOpenGroup(null);
+  };
+
   return (
     <header className="navbar">
       <Brand />
       <nav className={mobile ? 'navlinks mobileOpen' : 'navlinks'}>
-        <Link to="/" onClick={() => setMobile(false)}>HOME</Link>
-        {navGroups.map((group) => (
-          <div className="drop" key={group.label}>
-            <button>{group.label}<ChevronDown size={14} /></button>
-            <div className="dropdown">
-              {group.items.map(([title, path]) => (
-                <Link key={path} to={path} onClick={() => setMobile(false)}>{title}</Link>
-              ))}
+        <Link to="/" onClick={closeMenu}>HOME</Link>
+        {navGroups.map((group) => {
+          const isOpen = openGroup === group.label;
+          return (
+            <div className={`drop ${isOpen ? 'activeMobileDrop' : ''}`} key={group.label}>
+              <button
+                type="button"
+                onClick={() => toggleGroup(group.label)}
+                aria-expanded={isOpen}
+              >
+                <span>{group.label}</span>
+                <ChevronDown size={14} className={isOpen ? 'rotateChevron' : ''} />
+              </button>
+              <div className={`dropdown ${isOpen ? 'showMobile' : ''}`}>
+                {group.items.map(([title, path]) => (
+                  <Link key={path} to={path} onClick={closeMenu}>{title}</Link>
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </nav>
-      <button className="hamburger" onClick={() => setMobile(!mobile)} aria-label="Toggle navigation menu">
+      <button
+        className="hamburger"
+        onClick={() => {
+          setMobile(!mobile);
+          if (mobile) setOpenGroup(null);
+        }}
+        aria-label="Toggle navigation menu"
+        aria-expanded={mobile}
+      >
         {mobile ? <X /> : <Menu />}
       </button>
     </header>
