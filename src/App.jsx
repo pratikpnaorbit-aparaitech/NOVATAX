@@ -49,7 +49,10 @@ function Brand() {
   return (
     <Link className="brand" to="/">
       <div className="brandMark">N</div>
-      <div><b>NOVATAX</b><small>& Business Consultancy</small></div>
+      <div className="brandText">
+        <b>NOVATAX</b>
+        <small>& Business Consultancy</small>
+      </div>
     </Link>
   );
 }
@@ -71,7 +74,15 @@ function Header() {
     <header className="navbar">
       <Brand />
       <nav className={mobile ? 'navlinks mobileOpen' : 'navlinks'}>
-        <Link to="/" onClick={closeMenu}>HOME</Link>
+        <div className="mobileNavTop">
+          <Brand />
+          <button className="mobileNavClose" onClick={closeMenu} aria-label="Close menu" type="button">
+            <X size={20} />
+          </button>
+        </div>
+        <Link to="/" className="mobileHomeLink" onClick={closeMenu}>
+          HOME
+        </Link>
         {navGroups.map((group) => {
           const isOpen = openGroup === group.label;
           return (
@@ -92,18 +103,55 @@ function Header() {
             </div>
           );
         })}
+        <div className="mobileNavContactCard">
+          <div className="mobileContactPrompt">Need Direct Assistance?</div>
+          <div className="mobileContactButtons">
+            <a href={`tel:${CONTACT.phoneRaw}`} className="btn green mobileCallBtn">
+              <Phone size={15} /> Call {CONTACT.phoneDisplay}
+            </a>
+            <a
+              href={`https://wa.me/${CONTACT.whatsapp}`}
+              target="_blank"
+              rel="noreferrer"
+              className="btn outline mobileWaBtn"
+            >
+              <MessageCircle size={15} /> WhatsApp Specialist
+            </a>
+          </div>
+        </div>
       </nav>
-      <button
-        className="hamburger"
-        onClick={() => {
-          setMobile(!mobile);
-          if (mobile) setOpenGroup(null);
-        }}
-        aria-label="Toggle navigation menu"
-        aria-expanded={mobile}
-      >
-        {mobile ? <X /> : <Menu />}
-      </button>
+      <div className="navHeaderActions">
+        <a
+          href={`tel:${CONTACT.phoneRaw}`}
+          className="headerQuickCallBtn"
+          title={`Call ${CONTACT.phoneDisplay}`}
+          aria-label="Call Now"
+        >
+          <Phone size={15} />
+        </a>
+        <a
+          href={`https://wa.me/${CONTACT.whatsapp}`}
+          target="_blank"
+          rel="noreferrer"
+          className="headerQuickWaBtn"
+          title="Chat on WhatsApp"
+          aria-label="WhatsApp"
+        >
+          <MessageCircle size={16} />
+        </a>
+        <button
+          className="hamburger"
+          onClick={() => {
+            setMobile(!mobile);
+            if (mobile) setOpenGroup(null);
+          }}
+          aria-label="Toggle navigation menu"
+          aria-expanded={mobile}
+          type="button"
+        >
+          {mobile ? <X size={22} /> : <Menu size={22} />}
+        </button>
+      </div>
     </header>
   );
 }

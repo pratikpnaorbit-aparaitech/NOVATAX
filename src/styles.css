@@ -360,17 +360,152 @@ a {
   transform: translateX(4px);
 }
 
+/* Header Quick Actions & Hamburger Trigger */
+.navHeaderActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.headerQuickCallBtn,
+.headerQuickWaBtn {
+  display: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  flex-shrink: 0;
+}
+
+.headerQuickCallBtn {
+  background: #eff6ff;
+  color: #1d4ed8;
+  border: 1px solid #bfdbfe;
+}
+
+.headerQuickCallBtn:hover {
+  background: #1d4ed8;
+  color: #ffffff;
+}
+
+.headerQuickWaBtn {
+  background: #f0fdf4;
+  color: #16a34a;
+  border: 1px solid #bbf7d0;
+}
+
+.headerQuickWaBtn:hover {
+  background: #16a34a;
+  color: #ffffff;
+}
+
 .hamburger {
   display: none;
-  border: 0;
-  background: transparent;
+  width: 38px;
+  height: 38px;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  background: #f8fafc;
+  color: #062250;
   cursor: pointer;
-  padding: 8px;
-  transition: transform 0.2s ease;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.hamburger:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
 }
 
 .hamburger:active {
   transform: scale(0.92);
+}
+
+.mobileNavTop {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 14px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.mobileNavClose {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid #e2e8f0;
+  background: #f8fafc;
+  color: #475569;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.mobileNavClose:hover {
+  background: #fee2e2;
+  color: #dc2626;
+  border-color: #fca5a5;
+}
+
+.mobileHomeLink {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #062250;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  border: 1px solid transparent;
+  margin-bottom: 4px;
+  transition: all 0.2s ease;
+}
+
+.mobileHomeLink:hover {
+  background: #f0fdf4;
+  color: #12a94b;
+}
+
+.mobileNavContactCard {
+  display: none;
+  background: linear-gradient(135deg, #f0fdf4 0%, #f8fafc 100%);
+  border: 1px solid #bbf7d0;
+  border-radius: 12px;
+  padding: 14px;
+  margin-top: 16px;
+}
+
+.mobileContactPrompt {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #166534;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.mobileContactButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mobileContactButtons .btn {
+  min-height: 40px;
+  padding: 0 14px;
+  font-size: 13px;
+  border-radius: 8px;
+  justify-content: center;
 }
 
 /* ==========================================================================
@@ -2431,26 +2566,48 @@ footer {
   .navlinks {
     display: none;
     position: absolute;
-    top: 88px;
+    top: 100%;
     left: 0;
     right: 0;
+    width: 100%;
     background: #fff;
-    padding: 20px 5%;
+    padding: 18px 5% 26px;
     flex-direction: column;
     align-items: stretch;
-    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12);
-    max-height: 80vh;
+    box-shadow: 0 20px 40px rgba(6, 34, 80, 0.15);
+    max-height: calc(100vh - 88px);
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
     animation: fadeInUp 0.25s ease forwards;
-    border-bottom: 2px solid #e2e8f0;
+    border-top: 1px solid #f1f5f9;
+    border-bottom: 3px solid #20be59;
+    z-index: 999;
   }
 
   .navlinks.mobileOpen {
     display: flex;
   }
 
+  .mobileNavTop {
+    display: flex;
+  }
+
+  .mobileNavContactCard {
+    display: block;
+  }
+
+  .headerQuickCallBtn,
+  .headerQuickWaBtn {
+    display: inline-flex;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
   .drop {
     width: 100%;
+    margin-bottom: 4px;
   }
 
   .drop > button {
@@ -2458,6 +2615,7 @@ footer {
     justify-content: space-between;
     padding: 12px 14px;
     font-size: 14px;
+    font-weight: 700;
     border-radius: 8px;
     transition: background 0.2s ease, color 0.2s ease;
   }
@@ -2466,6 +2624,7 @@ footer {
   .drop.activeMobileDrop > button {
     background: #f0fdf4;
     color: #12a94b;
+    border-color: #bbf7d0;
   }
 
   .drop > button svg {
@@ -2494,13 +2653,17 @@ footer {
   }
 
   .dropdown.showMobile {
-    display: block;
+    display: flex;
+    flex-direction: column;
     animation: fadeIn 0.2s ease-out;
   }
 
   .dropdown a {
     padding: 10px 14px;
     font-size: 13.5px;
+    font-weight: 500;
+    color: #334155;
+    border-radius: 6px;
     border-bottom: 1px solid #f1f5f9;
   }
 
@@ -2508,8 +2671,10 @@ footer {
     border-bottom: none;
   }
 
-  .hamburger {
-    display: block;
+  .dropdown a:hover {
+    background: #eefbf3;
+    color: #12a94b;
+    font-weight: 600;
   }
 
   .hero {
@@ -2578,11 +2743,75 @@ footer {
   }
 
   .navbar {
-    padding: 0 4%;
+    height: 72px;
+    padding: 0 16px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  .brand {
+    gap: 8px;
+    min-width: auto;
+  }
+
+  .brandMark {
+    width: 38px;
+    height: 38px;
+    font-size: 20px;
+    border-radius: 10px;
+    flex-shrink: 0;
+  }
+
+  .brandText b {
+    font-size: 17px;
+    line-height: 1.1;
+    display: block;
+    color: #062250;
+  }
+
+  .brandText small {
+    font-size: 9.5px;
+    letter-spacing: 0.2px;
+    white-space: nowrap;
+    color: #64748b;
+    display: block;
+  }
+
+  .navHeaderActions {
+    gap: 6px;
+  }
+
+  .headerQuickCallBtn,
+  .headerQuickWaBtn {
+    width: 34px;
+    height: 34px;
+  }
+
+  .headerQuickCallBtn svg,
+  .headerQuickWaBtn svg {
+    width: 15px;
+    height: 15px;
+  }
+
+  .hamburger {
+    width: 36px;
+    height: 36px;
+  }
+
+  .navlinks {
+    max-height: calc(100vh - 72px);
+    padding: 16px 16px 24px;
+  }
+
+  .contactForm input,
+  .contactForm textarea,
+  .heroSearchBar input {
+    font-size: 16px !important;
   }
 
   .hero {
-    padding: 40px 5%;
+    padding: 40px 16px;
     gap: 30px;
   }
 
@@ -2601,11 +2830,11 @@ footer {
   .stats {
     grid-template-columns: repeat(2, 1fr);
     gap: 14px;
-    padding: 20px 5%;
+    padding: 20px 16px;
   }
 
   .section {
-    padding: 50px 5%;
+    padding: 46px 16px;
   }
 
   .section h2 {
@@ -2627,11 +2856,11 @@ footer {
   }
 
   .aboutArtwork {
-    min-height: 290px;
+    min-height: 270px;
   }
 
   .artPanel {
-    height: 290px;
+    height: 270px;
   }
 
   .footerGrid {
@@ -2652,11 +2881,13 @@ footer {
   }
 
   .whatsappFloat {
-    width: 54px;
-    height: 54px;
+    width: 52px;
+    height: 52px;
     border-radius: 50%;
     justify-content: center;
     padding: 0;
+    right: 18px;
+    bottom: 18px;
   }
 
   .copyright {
@@ -2673,28 +2904,43 @@ footer {
 /* 4. Compact Smartphones (up to 480px) */
 @media (max-width: 480px) {
   .navbar {
-    height: 76px;
-    padding: 0 4%;
+    height: 70px;
+    padding: 0 14px;
   }
 
   .brandMark {
-    width: 40px;
-    height: 40px;
-    font-size: 22px;
-    border-radius: 10px;
+    width: 36px;
+    height: 36px;
+    font-size: 19px;
+    border-radius: 9px;
   }
 
-  .brand b {
-    font-size: 18px;
+  .brandText b {
+    font-size: 16px;
   }
 
-  .brand small {
+  .brandText small {
     font-size: 9px;
   }
 
+  .navHeaderActions {
+    gap: 5px;
+  }
+
+  .headerQuickCallBtn,
+  .headerQuickWaBtn {
+    width: 32px;
+    height: 32px;
+  }
+
+  .hamburger {
+    width: 34px;
+    height: 34px;
+  }
+
   .hero {
-    padding: 30px 4%;
-    gap: 24px;
+    padding: 30px 14px;
+    gap: 22px;
   }
 
   .heroCopy > p {
@@ -2719,27 +2965,45 @@ footer {
   }
 
   .stats {
-    grid-template-columns: 1fr;
-    gap: 12px;
-    padding: 16px 4%;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 16px 12px;
+  }
+
+  .stat {
+    gap: 8px;
+  }
+
+  .statIcon {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+  }
+
+  .stat b {
+    font-size: 12px;
+  }
+
+  .stat small {
+    font-size: 9.5px;
   }
 
   .section {
-    padding: 40px 4%;
+    padding: 40px 14px;
   }
 
   .serviceCardBody {
-    padding: 20px 18px;
+    padding: 20px 16px;
   }
 
   .serviceHeroCard {
-    padding: 20px 16px;
+    padding: 18px 14px;
     border-radius: 16px;
   }
 
   .subpageCardImg {
-    margin: -20px -16px 18px -16px;
-    height: 160px;
+    margin: -18px -14px 16px -14px;
+    height: 155px;
   }
 
   .serviceHeroBtns {
@@ -2763,10 +3027,11 @@ footer {
   .whatsappOptionBtn {
     width: 100%;
     flex: 1 1 100%;
+    min-height: 48px;
   }
 
   .enquiryModalCard {
-    padding: 26px 16px;
+    padding: 24px 14px;
     border-radius: 18px;
   }
 
@@ -2777,6 +3042,22 @@ footer {
 
   .footerBrand {
     grid-column: span 1;
+  }
+}
+
+/* 5. Extra Small Smartphones (up to 360px - e.g. iPhone SE 1st Gen, Small Galaxy) */
+@media (max-width: 360px) {
+  .headerQuickWaBtn {
+    display: none;
+  }
+
+  .brandText small {
+    letter-spacing: 0;
+    font-size: 8.5px;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
   }
 }
 
