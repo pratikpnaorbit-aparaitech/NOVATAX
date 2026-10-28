@@ -3303,6 +3303,102 @@ footer {
 }
 
 /* ==========================================================================
+   Passport Seva Notice & Callout Card
+   ========================================================================== */
+
+.passportNoticeCard {
+  background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%);
+  border: 1.5px solid #bbf7d0;
+  border-left: 5px solid #20be59;
+  padding: 24px 28px;
+  margin-bottom: 24px;
+  border-radius: 14px;
+}
+
+.passportNoticeHeader {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  margin-bottom: 18px;
+}
+
+.passportNoticeIcon {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #0d315f, #20be59);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(32, 190, 89, 0.25);
+}
+
+.passportNoticeHeader h3 {
+  margin: 0 0 6px;
+  color: #0d315f;
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.passportNoticeHeader p {
+  margin: 0;
+  color: #475569;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.passportHighlightGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.passportHighlightBox {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 14px 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+.passportHighlightBox b {
+  display: block;
+  font-size: 13.5px;
+  color: #0f172a;
+  margin-bottom: 4px;
+}
+
+.passportHighlightBox span {
+  display: block;
+  font-size: 12px;
+  color: #64748b;
+  line-height: 1.45;
+}
+
+@media (max-width: 1380px) and (min-width: 1151px) {
+  .navlinks {
+    gap: 4px;
+  }
+  .navlinks > a,
+  .drop > button {
+    font-size: 11.5px;
+    padding: 10px 4px;
+    gap: 2px;
+  }
+  .brand b {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .passportHighlightGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
    Accessibility: Reduced Motion
    ========================================================================== */
 

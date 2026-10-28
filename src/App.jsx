@@ -3,7 +3,7 @@ import {Routes, Route, Link, useParams, useLocation, useNavigate} from 'react-ro
 import {
   Phone, Mail, Globe2, Menu, X, ChevronDown, ChevronUp, MessageCircle, Send, CheckCircle2,
   Building2, ReceiptText, FileText, Factory, Award, ShieldCheck, Users, MapPin, Clock3, Handshake, LockKeyhole,
-  Search, ArrowRight, HelpCircle, Lock
+  Search, ArrowRight, HelpCircle, Lock, Plane
 } from 'lucide-react';
 import {
   CONTACT,
@@ -16,7 +16,7 @@ import {
 import LeadsDashboard from './LeadsDashboard';
 import { saveLead } from './leadsStorage';
 
-const IconByIndex = [Building2, FileText, ReceiptText, Factory, Globe2, Award];
+const IconByIndex = [Building2, FileText, Plane, ReceiptText, Factory, Globe2, Award];
 
 function useScrollReveal() {
   const { pathname } = useLocation();
@@ -504,9 +504,10 @@ function Home() {
         {[
           ['BUSINESS SETUP', 'Registration assistance', '/services/private-limited-company'],
           ['GST & TAX', 'Compliance support', '/services/gst-registration'],
+          ['PASSPORT SEVA', 'Fast-track application', '/services/fresh-passport-application'],
           ['IMPORT EXPORT', 'Documentation support', '/services/iec-registration'],
           ['ISO & LICENSES', 'Certification guidance', '/services/iso-9001-2015'],
-          ['PAN INDIA', 'Remote assistance', '/services/msme-udyam-registration']
+          ['PAN INDIA', 'Remote assistance', '/services/msme-registration']
         ].map(([a, b, linkPath], i) => (
           <Link
             to={linkPath}
@@ -788,6 +789,33 @@ function ServicePage() {
       <section className="section subpageBody">
         <div className="subpageGrid">
           <div className="mainCol">
+            {/* Special Callout for Passport Services */}
+            {s.group === 'PASSPORT' && (
+              <div className="contentCard passportNoticeCard reveal">
+                <div className="passportNoticeHeader">
+                  <div className="passportNoticeIcon"><Plane size={24} /></div>
+                  <div>
+                    <h3>Passport Seva Kendra (PSK) Direct Liaison & Tatkaal Support</h3>
+                    <p>NOVATAX provides complete end-to-end guidance for Indian Passports. We prepare your application on the official Passport Seva portal, pay government fees, book the earliest available PSK / POPSK appointment slot in your city, and provide document pre-audit so you don't face rejection or resubmission.</p>
+                  </div>
+                </div>
+                <div className="passportHighlightGrid">
+                  <div className="passportHighlightBox">
+                    <b>⚡ Normal & Tatkaal Expedited</b>
+                    <span>Choose Normal (7-14 days) or Tatkaal urgent processing (1-3 days dispatch).</span>
+                  </div>
+                  <div className="passportHighlightBox">
+                    <b>📅 Earliest Slot Booking</b>
+                    <span>Guaranteed assistance securing appointment dates at PSK, POPSK, or Regional Passport Office.</span>
+                  </div>
+                  <div className="passportHighlightBox">
+                    <b>📑 Error-Free Document Scrutiny</b>
+                    <span>Zero chances of rejection — every DOB, address proof, and Annexure is verified in advance.</span>
+                  </div>
+                </div>
+              </div>
+            )}
+
             {/* Section 1: Deliverables */}
             <div className="contentCard reveal">
               <div className="cardEyebrow">DELIVERABLES & SCOPE</div>

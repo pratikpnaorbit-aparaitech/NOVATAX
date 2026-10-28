@@ -389,6 +389,62 @@ export const navGroups = [
       ['MSME Registration', '/services/msme-registration'],
       ['IREPS Registration', '/services/ireps-registration']
     ]
+  },
+  {
+    label: 'PASSPORT',
+    badge: 'Passport Seva',
+    icon: 'Plane',
+    turnaround: '3 - 7 Working Days',
+    summary: 'End-to-end Indian Passport application assistance for Fresh Passport, Tatkaal express processing, Renewal/Re-issue, Minor Passport, and Police Clearance Certificate (PCC) with PSK/POPSK appointment scheduling and document verification.',
+    documents: [
+      'Proof of Identity & Address (Aadhaar Card / Voter ID / Utility Bill / Rent Agreement)',
+      'Proof of Date of Birth (Birth Certificate, 10th Standard School Leaving / Passing Certificate, or PAN Card)',
+      'Existing / Expired Passport booklet (Mandatory for Renewal, Re-issue, or ECR/ECNR change)',
+      'Annexure D and Parent Passports / Consent (for Minor Passport applications)',
+      'Recent Passport-sized photographs (clean white background as per MEA guidelines)',
+      'Marriage Certificate / Official Gazette Notification (for Name / Spouse / Address Endorsement)',
+      'Lost Passport FIR Copy & Notarized Affidavit Form (if applying for Lost / Damaged Passport)'
+    ],
+    deliverables: [
+      'Official Passport Seva Portal Application Filing & ARN Generation',
+      'Confirmed PSK / POPSK Appointment Slot Booking at your preferred center',
+      'Document Scrutiny, Upload, & Pre-Verification Eligibility Report',
+      'Tatkaal Express Priority Escalation & Advisory',
+      'Police Verification Guidance & Speed Post Dispatch Tracking'
+    ],
+    steps: [
+      'Applicant Profile Creation & Online Form Submission',
+      'Online Government Fee Payment & Slot Appointment Booking',
+      'Document Verification & Biometrics at Passport Seva Kendra (PSK)',
+      'Police Verification Scrutiny & Speed Post Delivery to Doorstep'
+    ],
+    faqs: [
+      {
+        q: 'What is the difference between Normal and Tatkaal Passport applications?',
+        a: 'A Normal passport application usually takes 7 to 14 working days post-police verification. Tatkaal passport applications are processed on high priority, typically dispatched within 1 to 3 working days with post-issuance police verification for eligible applicants.'
+      },
+      {
+        q: 'Is physical presence required at Passport Seva Kendra (PSK)?',
+        a: 'Yes. While NOVATAX handles all form filings, fee payments, document audits, and slot booking online, the applicant must visit the chosen PSK / POPSK on the scheduled appointment date for photograph and biometric fingerprint capture.'
+      },
+      {
+        q: 'Can NOVATAX help if my passport is expired, damaged, or out of pages?',
+        a: 'Yes. We handle Re-issue of Passports due to exhaustion of visa pages, validity expiration, damaged booklets, or lost passports with FIR and affidavit documentation.'
+      },
+      {
+        q: 'What is a Police Clearance Certificate (PCC) and how is it processed?',
+        a: 'A Police Clearance Certificate (PCC) is an official document issued to Indian passport holders seeking long-term employment, residential status, immigration, or long-stay visas abroad. We handle complete PCC portal filing and appointment booking.'
+      }
+    ],
+    items: [
+      ['Fresh Passport Application', '/services/fresh-passport-application'],
+      ['Tatkaal Passport Service', '/services/tatkaal-passport-service'],
+      ['Passport Renewal & Re-issue', '/services/passport-renewal-reissue'],
+      ['Minor Passport Application', '/services/minor-passport-application'],
+      ['Lost / Damaged Passport Re-issue', '/services/lost-damaged-passport'],
+      ['Passport Name / Address Change', '/services/passport-name-address-change'],
+      ['Police Clearance Certificate (PCC)', '/services/police-clearance-certificate-pcc']
+    ]
   }
 ];
 
@@ -400,12 +456,14 @@ const categoryImageMap = {
   'RCMC': '/assets/card-import-export.jpg',
   'ISO': '/assets/card-iso-cert.jpg',
   'Income Tax & GST': '/assets/card-gst-tax.jpg',
-  'OTHERS': '/assets/card-msme.jpg'
+  'OTHERS': '/assets/card-msme.jpg',
+  'PASSPORT': '/assets/card-passport.jpg'
 };
 
 export const featuredServices = [
   ['Pvt Ltd', 'BUSINESS SETUP', 'Company formation and startup compliance support.', '/services/private-limited-company', '/assets/card-business-setup.jpg'],
   ['GSTIN', 'GST & INDIRECT TAX', 'GST registration, return filing and indirect tax compliance.', '/services/gst-registration', '/assets/card-gst-tax.jpg'],
+  ['Passport', 'PASSPORT SEVA', 'Fresh, Tatkaal & Renewal Indian Passport application assistance.', '/services/fresh-passport-application', '/assets/card-passport.jpg'],
   ['ITR', 'INCOME TAX FILING', 'Income tax return filing and practical tax compliance support.', '/services/income-tax-return', '/assets/card-income-tax.jpg'],
   ['MSME', 'MSME REGISTRATION', 'Udyam/MSME registration assistance for eligible businesses.', '/services/msme-registration', '/assets/card-msme.jpg'],
   ['IEC', 'IMPORT EXPORT', 'IEC and import-export documentation support.', '/services/iec-registration', '/assets/card-import-export.jpg'],
@@ -413,6 +471,8 @@ export const featuredServices = [
 ];
 
 export const popularHeroPills = [
+  { title: 'Passport Application', path: '/services/fresh-passport-application', tag: 'Fast Track' },
+  { title: 'Tatkaal Passport', path: '/services/tatkaal-passport-service', tag: 'Tatkaal' },
   { title: 'Pvt Ltd Company', path: '/services/private-limited-company', tag: 'Fast Setup' },
   { title: 'GST Registration', path: '/services/gst-registration', tag: 'Tax' },
   { title: 'Income Tax Return', path: '/services/income-tax-return', tag: 'Filing' },
