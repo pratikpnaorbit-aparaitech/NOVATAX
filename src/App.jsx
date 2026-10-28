@@ -57,36 +57,25 @@ function Brand() {
 function Header() {
   const [mobile, setMobile] = useState(false);
   return (
-    <>
-      <div className="topbar">
-        <div className="topbarInner">
-          <div className="topLeft">
-            <a href={`tel:${CONTACT.phoneRaw}`}><Phone size={16}/>{CONTACT.phoneDisplay}</a>
-            <a href={`mailto:${CONTACT.email}`}><Mail size={16}/>{CONTACT.email}</a>
-          </div>
-          <a className="domain" href={`https://${CONTACT.domain}`} target="_blank" rel="noreferrer"><Globe2 size={16}/>{CONTACT.domain}</a>
-        </div>
-      </div>
-      <header className="navbar">
-        <Brand />
-        <nav className={mobile ? 'navlinks mobileOpen' : 'navlinks'}>
-          <Link to="/" onClick={() => setMobile(false)}>HOME</Link>
-          {navGroups.map((group) => (
-            <div className="drop" key={group.label}>
-              <button>{group.label}<ChevronDown size={14} /></button>
-              <div className="dropdown">
-                {group.items.map(([title, path]) => (
-                  <Link key={path} to={path} onClick={() => setMobile(false)}>{title}</Link>
-                ))}
-              </div>
+    <header className="navbar">
+      <Brand />
+      <nav className={mobile ? 'navlinks mobileOpen' : 'navlinks'}>
+        <Link to="/" onClick={() => setMobile(false)}>HOME</Link>
+        {navGroups.map((group) => (
+          <div className="drop" key={group.label}>
+            <button>{group.label}<ChevronDown size={14} /></button>
+            <div className="dropdown">
+              {group.items.map(([title, path]) => (
+                <Link key={path} to={path} onClick={() => setMobile(false)}>{title}</Link>
+              ))}
             </div>
-          ))}
-        </nav>
-        <button className="hamburger" onClick={() => setMobile(!mobile)} aria-label="Toggle navigation menu">
-          {mobile ? <X /> : <Menu />}
-        </button>
-      </header>
-    </>
+          </div>
+        ))}
+      </nav>
+      <button className="hamburger" onClick={() => setMobile(!mobile)} aria-label="Toggle navigation menu">
+        {mobile ? <X /> : <Menu />}
+      </button>
+    </header>
   );
 }
 

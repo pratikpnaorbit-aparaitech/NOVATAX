@@ -9,8 +9,9 @@ const AUTH_KEY = 'novatax_admin_auth_session';
 
 // Official Administrator Credentials
 export const ADMIN_CREDENTIALS = {
-  email: 'info@novatax.in',
+  email: 'info@ai.aparaitech.org',
   alternativeEmail: 'aparaitech@gmail.com',
+  legacyEmail: 'info@novatax.in',
   password: 'Aparaitech123@'
 };
 
@@ -66,7 +67,8 @@ export function loginAdmin(email, password) {
 
   if (
     (cleanEmail === ADMIN_CREDENTIALS.email.toLowerCase() ||
-     cleanEmail === (ADMIN_CREDENTIALS.alternativeEmail || '').toLowerCase()) &&
+     cleanEmail === (ADMIN_CREDENTIALS.alternativeEmail || '').toLowerCase() ||
+     cleanEmail === (ADMIN_CREDENTIALS.legacyEmail || '').toLowerCase()) &&
     cleanPass === ADMIN_CREDENTIALS.password
   ) {
     try {

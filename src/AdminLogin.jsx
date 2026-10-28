@@ -59,7 +59,7 @@ export default function AdminLogin({ onLoginSuccess }) {
                 <input
                   id="adminEmail"
                   type="email"
-                  placeholder="info@novatax.in"
+                  placeholder="info@ai.aparaitech.org"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required

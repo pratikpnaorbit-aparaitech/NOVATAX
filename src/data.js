@@ -3,8 +3,8 @@ export const CONTACT = {
   shortName: 'NOVATAX',
   phoneDisplay: '+91 82618 40199',
   phoneRaw: '+918261840199',
-  email: 'info@novatax.in',
-  domain: 'www.novatax.in',
+  email: 'info@ai.aparaitech.org',
+  domain: 'www.novatax.aparaitech.org',
   whatsapp: '918261840199',
   address: 'Gera Imperium Phase 2, Hinjawadi, Pune'
 };
