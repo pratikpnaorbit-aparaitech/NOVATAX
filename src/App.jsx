@@ -80,7 +80,7 @@ function Header() {
             <X size={20} />
           </button>
         </div>
-        <Link to="/" className="mobileHomeLink" onClick={closeMenu}>
+        <Link to="/" className="navHomeLink" onClick={closeMenu}>
           HOME
         </Link>
         {navGroups.map((group) => {
@@ -514,7 +514,7 @@ function Home() {
         <div className="heroCopy">
           <div className="eyebrow heroEyebrow">NOVATAX • BUSINESS CONSULTANCY</div>
           <h1 className="heroTitle">
-            Simple Tax &<br /><span>Compliance Support</span><br />for Growing Businesses
+            Simple Tax & <span className="heroGradientText">Compliance Support</span><br className="desktopBreak" /> for Growing Businesses
           </h1>
           <p className="heroDesc">
             Business registration, GST filings, income tax, import-export codes, ISO certifications, and corporate compliance — all under one roof.
@@ -679,7 +679,11 @@ function Home() {
           </div>
         </div>
 
-        <div className="eyebrow center reveal">WHY CHOOSE US?</div>
+        <div className="sectionHead reveal whyChooseSectionHead">
+          <div className="eyebrow center">WHY CHOOSE US</div>
+          <h2>Built for Reliability, Speed & Full Compliance</h2>
+          <p>Practical guidance, transparent execution, and dedicated PAN-India assistance tailored for modern businesses.</p>
+        </div>
         <div className="reasonGrid">
           {reasons.map(([Icon, title, text], i) => (
             <div className={`reason reveal delay-${((i % 2) + 1) * 150}`} key={title}>
@@ -694,6 +698,7 @@ function Home() {
         <div className="sectionHead">
           <div className="eyebrow">BUSINESS CATEGORIES WE SUPPORT</div>
           <h2>Built for Different Types of Businesses</h2>
+          <p>From dynamic early-stage startups and MSMEs to established manufacturers and global exporters.</p>
         </div>
         <div className="marquee">
           <div className="marqueeTrack">

@@ -295,7 +295,7 @@ export const navGroups = [
     ]
   },
   {
-    label: 'Income Tax & GST',
+    label: 'TAX & GST',
     badge: 'Taxation & Returns',
     icon: 'FileText',
     turnaround: '2 - 4 Working Days',
@@ -455,6 +455,7 @@ const categoryImageMap = {
   'IMPORT & EXPORT': '/assets/card-import-export.jpg',
   'RCMC': '/assets/card-import-export.jpg',
   'ISO': '/assets/card-iso-cert.jpg',
+  'TAX & GST': '/assets/card-gst-tax.jpg',
   'Income Tax & GST': '/assets/card-gst-tax.jpg',
   'OTHERS': '/assets/card-msme.jpg',
   'PASSPORT': '/assets/card-passport.jpg'
